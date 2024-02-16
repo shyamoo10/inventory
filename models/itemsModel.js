@@ -7,7 +7,7 @@ const itemsSchema=mongoose.Schema({
     number_in_stocks:Number
 })
  itemsSchema.virtual("url").get(function(){
-   return "/categories/items/"+this._id
+   return "/categories/items/" +this._id
  })
   const items=mongoose.model("items",itemsSchema)
   module.exports=items
