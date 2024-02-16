@@ -1,9 +1,8 @@
 const mongoose=require('mongoose')
-const Schema=mongoose.Schema()
-const itemsSchema=new Schema({
+const itemsSchema=mongoose.Schema({
     name:String,
     description:String,
-    category:{type:Schema.Types.ObjectId, ref:"categories"},
+    category:{type:mongoose.Types.ObjectId, ref:"categories"},
     price:Number,
     number_in_stocks:Number
 })

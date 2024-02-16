@@ -1,5 +1,5 @@
 const mongoose=require('mongoose')
- const categoryShema=mongoose.schema({
+ const categoryShema=mongoose.Schema({
     name:String,
     description:String
  })

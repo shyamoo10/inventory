@@ -20,7 +20,7 @@ app.set('port', port);
  */
 
 var server = http.createServer(app);
-
+const db= require("../connection")
 /**
  * Listen on provided port, on all network interfaces.
  */
@@ -32,10 +32,10 @@ server.on('listening', onListening);
 /**
  * Normalize a port into a number, string, or false.
  */
-
+   
 function normalizePort(val) {
   var port = parseInt(val, 10);
-
+   
   if (isNaN(port)) {
     // named pipe
     return val;
