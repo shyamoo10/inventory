@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+ <style>
+    .form_div{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
+    .outer_div{
+        width: 50%;
+        margin: auto;
+        border: 2px solid red;
+        background-color: brown;
+    }
+    .head{
+        text-align: center;
+    }
+    body{
+        background-color: black;
+        color: white;
+    }
+ </style>
+<body>  
+     <h4 class="head">Create Item</h4>
+    <div class="outer_div">
+      <form action="/categories/items/create" method="post">
+         <div class="form_div">
+        <label for="name">Enter the name</label>
+        <input type="text" id="name"  name="name" placeholder="Enter Name">
+         <label for="description">Description</label>
+         <input type="text" id="description"  name="description" placeholder="Enter the description">
+          <label for="category">Select a Category</label>
+           <select name="category" id="category">
+           <% if(alldataCategories) { %>
+
+           <% alldataCategories.forEach((category)=>{ %>
+               <option value="<%=category.name %>"><%= category.name %> </option>
+      <%     })  %>
+           <% } %>
+           </select>
+          <label for="price">Enter the Price</label>
+          <input type="text"  id="price" name="price"  placeholder="Price">
+          <label for="stocks">Enter the Number of Stocks</label>
+          <input type="text"  id="stocks"  name="stocks"  placeholder="Number of Stocks">
+          <input type="submit"  value="submit">
+        </div>
+      </form>
+      <% if(item) { %>
+          <p><%= item.name %> already exist!!</p>
+         <% } %>
+    </div>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: black;
+        color: white;
+    }
+
+   .form{
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    text-align: center;
+   }
+   .form input{
+     width: 40%;
+     text-align: center;
+     margin: auto;
+   }
+   .form_div{
+    border: 1px solid black;
+    padding: 5px;
+      width: 500px;
+      height: 150px;
+   }
+   .border{
+    border: 2px solid red;
+    padding: 10px;
+   }
+</style>
+
+<body> 
+    <% if (category) { %>
+        <p><%= category.name %> already exists</p>
+        <div class="form_div">
+            <div class="border">
+                <form action="/categories/create" method="post" class="form">
+                    <label for="new_category">Create Category</label>
+                    <input type="text" id="new_category" name="category" placeholder="Enter the name of category">
+                     <label for="description">Description</label>
+                     <input type="text" id="desccription"  name="description" placeholder="Enter the desccription">
+                    <input type="submit" value="submit">
+                </form>
+            </div>
+        </div>
+    <% } else { %>
+        <div class="form_div">
+            <div class="border">
+                <form action="/categories/create" method="post" class="form">
+                    <label for="new_category">Create Category</label>
+                    <input type="text" id="new_category" name="category" placeholder="Enter the name of category">
+                    <label for="description">Description</label>
+                    <input type="text" id="desccription"  name="description" placeholder="Enter the description">
+                    <input type="submit" value="submit">
+                </form>
+            </div>
+        </div>
+    <% } %>
+    
+</body>
+</html>

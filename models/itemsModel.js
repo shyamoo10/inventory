@@ -9,5 +9,8 @@ const itemsSchema=mongoose.Schema({
  itemsSchema.virtual("url").get(function(){
    return "/categories/items/" +this._id
  })
+  itemsSchema.virtual("delete_url").get(function(){
+     return "/categories/items/delete/" +this._id
+  })
   const items=mongoose.model("items",itemsSchema)
   module.exports=items

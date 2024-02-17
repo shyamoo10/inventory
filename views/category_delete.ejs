@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <% if (allitems && allitems.length > 0) { %>
+        <p>You need to delete these items before deleting the Category:</p>
+        <ul>
+            <% allitems.forEach((item) => { %>
+                 <li><a href="<%= item.url %>"><%=item.name %></a></li>
+            <% }); %>
+        </ul>
+    <% } else { %>
+        <form action="/categories/delete/<%= allcategory._id %>" method="post">
+            <p>Do you really want to delete this category?</p>
+            <input type="text" name="category_id" hidden value="<%= allcategory._id %>">
+            <input type="submit" value="Delete">
+        </form>
+    <% } %>
+</body>
+</html>

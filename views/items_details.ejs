@@ -8,9 +8,11 @@
 <body>
     <% if(item) { %>
         <h4><%= item.name %></h4>
-         <p><strong>desccription:</strong> <%=item.description %></p>
+         <p><strong>description:</strong> <%=item.description %></p>
          <p><strong>price = <%=item.price %></strong></p>
           <p><strong>Number in Stocks = <%=item.number_in_stocks %></strong></p>
+           <a href="<%= item.delete_url %>"> Delete Item</a>
          <% }  %>
+
 </body>
 </html>

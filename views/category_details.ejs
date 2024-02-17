@@ -7,12 +7,14 @@
 </head>
 <body>
     <% if (allitems) { %>
-        <h4><%= title %></h4>
+        <h4><%= allcategories.name %></h4>
+         <p> <strong>description:</strong> <%= allcategories.description %></p>
         <ul>
             <% allitems.forEach((item) => { %>
                 <li><a href="<%= item.url %>"><%= item.name %></a></li>
             <% }); %>
         </ul>
+          <a href="<%=allcategories.delete_url %>">Delete Category</a>
     <% } %>
 </body>
 </html>
